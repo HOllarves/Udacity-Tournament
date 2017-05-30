@@ -8,13 +8,15 @@
 
 CREATE DATABASE IF NOT EXISTS  tournament;
 
-CREATE TABLE IF NOT EXISTS players (
-    player_id SERIAL,
+\c tournament
+
+CREATE TABLE players (
+    player_id SERIAL PRIMARY,
     name VARCHAR(50),
     CONSTRAINT player_id_pk PRIMARY KEY (player_id));
 
-CREATE TABLE IF NOT EXISTS scores (
-    score_id SERIAL,
+CREATE TABLE scores (
+    score_id SERIAL PRIMARY,
     win_id INTEGER REFERENCES players(player_id),
     lost_id INTEGER REFERENCES players(player_id)
     );
